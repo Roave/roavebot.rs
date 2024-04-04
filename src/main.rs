@@ -27,7 +27,9 @@ impl EventHandler for Bot {
                         "Person to say hello to",
                     )
                     .required(true)
-                )
+                ),
+            CreateCommand::new("source")
+                .description("Find where the source code lives..."),
         ];
         let commands = &self
             .discord_guild_id
@@ -45,6 +47,7 @@ impl EventHandler for Bot {
                     let person = command.data.options.iter().find(|opt| opt.name == "person").clone().unwrap().value.as_str().unwrap();
                     format!("Hey there, {}", person)
                 },
+                "source" => "My source code is located at https://github.com/Roave/roavebot.rs <:uwugrim:1131146511024144394>".to_owned(),
                 command => unreachable!("Unknown command: {}", command),
             };
 
