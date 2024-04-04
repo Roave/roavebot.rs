@@ -1,11 +1,10 @@
 use anyhow::Context as _;
 use serenity::all::{CreateCommand, CreateCommandOption, CreateInteractionResponse, CreateInteractionResponseMessage, GuildId, Interaction};
 use serenity::async_trait;
-use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
 use shuttle_runtime::SecretStore;
-use tracing::{error, info};
+use tracing::{info};
 
 struct Bot {
     discord_guild_id: GuildId
